@@ -1,0 +1,58 @@
+<mat-card>
+    <h2>Register a new account</h2>
+    <form #registerform="ngForm" (submit)="onRegister(registerform)">
+        <mat-form-field>
+            <label>Email:</label>
+            <input
+                matInput
+                type="text"
+                name="email"
+                ngModel
+                required
+                minlength="6"
+                #email="ngModel">
+            <mat-error *ngIf="email.invalid">Enter a valid email.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <label>Username:</label>
+            <input
+                matInput
+                type="text"
+                name="username"
+                ngModel
+                required
+                minlength="6"
+                #username="ngModel">
+            <mat-error *ngIf="username.invalid">Enter a valid username.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <label>Password:</label>
+            <input
+                matInput
+                type="password"
+                name="password"
+                ngModel
+                required
+                minlength="6"
+                #password="ngModel">
+            <mat-error *ngIf="password.invalid">Enter a valid password.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <label>Re-enter password:</label>
+            <input
+                matInput
+                type="repassword"
+                name="repassword"
+                ngModel
+                required
+                minlength="6"
+                #repassword="ngModel">
+            <mat-error *ngIf="repassword.invalid">Enter a valid password.</mat-error>
+        </mat-form-field>
+        <button mat-raised-button 
+            color="primary" 
+            type="submit">
+            Register
+        </button>
+    </form>
+</mat-card>

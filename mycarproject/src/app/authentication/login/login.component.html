@@ -1,5 +1,6 @@
 <mat-card>
-    <form >
+    <h2>Log in to your account</h2>
+    <form #loginForm="ngForm" (submit)="onLogin(loginForm)">
         <mat-form-field>
             <label>Username:</label>
             <input
@@ -9,7 +10,8 @@
                 ngModel
                 required
                 minlength="6"
-                #title="ngModel">
+                #username="ngModel">
+            <mat-error *ngIf="username.invalid">Enter a valid username.</mat-error>
         </mat-form-field>
         <mat-form-field>
             <label>Password:</label>
@@ -20,7 +22,8 @@
                 ngModel
                 required
                 minlength="6"
-                #title="ngModel">
+                #password="ngModel">
+            <mat-error *ngIf="password.invalid">Enter a valid password.</mat-error>
         </mat-form-field>
         <button mat-raised-button 
             color="primary" 
