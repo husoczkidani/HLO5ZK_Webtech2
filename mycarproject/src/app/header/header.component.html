@@ -1,3 +1,15 @@
-<mat-toolbar color='primary'>
-   <span>My car app</span>
- </mat-toolbar>
+<mat-toolbar>
+  <a routerLink="/" routerLinkActive="mat-accent">
+    <span>MyCarProject</span>
+  </a>
+  <a *ngIf="!isAuthenticated" mat-button routerLink="/login" routerLinkActive="mat-accent">
+    <span>Login</span>
+  </a>
+  <a *ngIf="!isAuthenticated" mat-button routerLink="/register" routerLinkActive="mat-accent">
+    <span>Register</span>
+  </a>
+  <a *ngIf="isAuthenticated" mat-button (click)="onLogout()" routerLinkActive="mat-accent">
+    <span>Logout</span>
+  </a>
+  
+</mat-toolbar>

@@ -11,7 +11,7 @@ export class AuthenticationService {
     private isAuthenticated = false;
     private authStatusListener = new Subject<boolean>();
 
-    constructor(){}
+    constructor(private router: Router){}
 
     getIsAuth() {
         return this.isAuthenticated;
@@ -26,16 +26,19 @@ export class AuthenticationService {
         const registerData: RegisterData = {email, username, password, repassword };
         this.isAuthenticated = true;
         this.authStatusListener.next(true);
+        this.router.navigate(['/']);
     }
 
     login(username: string, password: string) {
         const loginData: LoginData = { username: username, password: password };
         this.isAuthenticated = true;
         this.authStatusListener.next(true);
+        this.router.navigate(['/']);
     }
 
     logout() {
         this.isAuthenticated = false;
         this.authStatusListener.next(false);
+        this.router.navigate(['/login']);
       }
 }
