@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 import { Router, RouteReuseStrategy } from "@angular/router";
 import { Subject } from "rxjs";
 import { LoginData } from "./login.model";
@@ -11,7 +12,7 @@ export class AuthenticationService {
     private isAuthenticated = false;
     private authStatusListener = new Subject<boolean>();
 
-    constructor(private router: Router){}
+    constructor(private http: HttpClient,private router: Router){}
 
     getIsAuth() {
         return this.isAuthenticated;
@@ -21,12 +22,15 @@ export class AuthenticationService {
         return this.authStatusListener.asObservable();
     }
 
-    createUser(email: string, username: string, password: string, repassword: string)
+    createUser(email: string, username: string, password: string)
     {
-        const registerData: RegisterData = {email, username, password, repassword };
-        this.isAuthenticated = true;
-        this.authStatusListener.next(true);
-        this.router.navigate(['/']);
+        const registerData: RegisterData = {email, username, password };
+        this.http
+            .post('http://localhost:4000/app/register', registerData)
+            .subscribe((response) => {
+        console.log(response);
+        this.login(username,password);
+      });
     }
 
     login(username: string, password: string) {
@@ -34,6 +38,15 @@ export class AuthenticationService {
         this.isAuthenticated = true;
         this.authStatusListener.next(true);
         this.router.navigate(['/']);
+        this.http
+        .post('http://localhost:4000/app/login', loginData )
+            .subscribe((response) => {
+                this.isAuthenticated = true;
+                this.authStatusListener.next(true);
+                const now = new Date();
+                this.router.navigate(['/']);
+            }
+        );
     }
 
     logout() {

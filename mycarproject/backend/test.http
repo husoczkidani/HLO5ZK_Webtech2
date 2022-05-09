@@ -1,8 +1,7 @@
-POST http://localhost:4000/app/register
+POST http://localhost:4000/app/login
 Content-Type: application/json
 
 {
-    "email": "asdd@gmail.com",
-    "username": "admin",
-    "password": "admin"
+    "username": "testuser",
+    "password": "testpassword"
 }

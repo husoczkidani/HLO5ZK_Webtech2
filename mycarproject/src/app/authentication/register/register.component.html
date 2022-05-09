@@ -37,18 +37,6 @@
                 #password="ngModel">
             <mat-error *ngIf="password.invalid">Enter a valid password.</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <label>Re-enter password:</label>
-            <input
-                matInput
-                type="repassword"
-                name="repassword"
-                ngModel
-                required
-                minlength="6"
-                #repassword="ngModel">
-            <mat-error *ngIf="repassword.invalid">Enter a valid password.</mat-error>
-        </mat-form-field>
         <button mat-raised-button 
             color="primary" 
             type="submit">

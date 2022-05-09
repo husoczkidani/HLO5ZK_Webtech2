@@ -8,8 +8,7 @@
   <a *ngIf="!isAuthenticated" mat-button routerLink="/register" routerLinkActive="mat-accent">
     <span>Register</span>
   </a>
-  <a *ngIf="isAuthenticated" mat-button (click)="onLogout()" routerLinkActive="mat-accent">
+  <a *ngIf="isAuthenticated" id="logout" mat-button (click)="onLogout()" routerLinkActive="mat-accent">
     <span>Logout</span>
   </a>
-  
 </mat-toolbar>

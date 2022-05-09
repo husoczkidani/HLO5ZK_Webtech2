@@ -5,6 +5,7 @@ mat-toolbar{
 
 mat-toolbar a{
     text-decoration: none;
+    font-size: 18px;
 }
 
 mat-toolbar a:visited{
