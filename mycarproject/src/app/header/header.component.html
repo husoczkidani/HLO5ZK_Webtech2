@@ -1,12 +1,18 @@
 <mat-toolbar>
   <a routerLink="/" routerLinkActive="mat-accent">
-    <span>MyCarProject</span>
+    <span class="logo">MyCarProject</span>
   </a>
   <a *ngIf="!isAuthenticated" mat-button routerLink="/login" routerLinkActive="mat-accent">
     <span>Login</span>
   </a>
   <a *ngIf="!isAuthenticated" mat-button routerLink="/register" routerLinkActive="mat-accent">
     <span>Register</span>
+  </a>
+  <a *ngIf="isAuthenticated" mat-button routerLink="/create" routerLinkActive="mat-accent">
+    <span>Add new Item</span>
+  </a>
+  <a *ngIf="isAuthenticated" mat-button routerLink="/register" routerLinkActive="mat-accent">
+    <span>Search Item List</span>
   </a>
   <a *ngIf="isAuthenticated" id="logout" mat-button (click)="onLogout()" routerLinkActive="mat-accent">
     <span>Logout</span>

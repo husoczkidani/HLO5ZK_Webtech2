@@ -7,8 +7,20 @@ const cors = require('cors')
 
 dotenv.config();
 
-mongoose.connect(process.env.DATABASE_USERS_ACCESS, () => console.log("Database connected"));
+const url = "mongodb+srv://admin:5U9QJbnE0xHJZAph@cluster0.nuuqo.mongodb.net/?retryWrites=true&w=majority";
 
+const connectionParams={
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+}
+
+mongoose.connect(url,connectionParams)
+  .then( () => {
+      console.log('Connected to the database ')
+  })
+  .catch( (err) => {
+      console.error(`Error connecting to the database. n${err}`);
+});
 app.use(express.json())
 app.use(cors())
 app.use('/app', routeUrls);

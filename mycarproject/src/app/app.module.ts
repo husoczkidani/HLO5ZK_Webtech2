@@ -8,7 +8,11 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -31,7 +35,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     MatButtonModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,81 @@
+<mat-card>
+    <h2>Add a new car to the list</h2>
+    <form #createCarForm="ngForm" (submit)="onCreate(createCarForm)">
+        <mat-form-field>
+            <label>Brand:</label>
+            <mat-select 
+                name="brand" 
+                ngModel
+                #brand="ngModel"
+                required>
+              <mat-option 
+              *ngFor="let brand of brands" 
+                    [value]="brand" >
+                        {{ brand }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="brand.invalid">Please choose a brand</mat-error>
+          </mat-form-field>
+          
+        <mat-form-field>
+            <label>Type:</label>
+            <input
+                matInput
+                type="text"
+                name="type"
+                ngModel
+                required
+                minlength="3"
+                #type="ngModel">
+            <mat-error *ngIf="type.invalid">Enter a valid type.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <label>Fuel:</label>
+            <input
+                matInput
+                type="text"
+                name="fuel"
+                ngModel
+                required
+                minlength="3"
+                #fuel="ngModel">
+            <mat-error *ngIf="fuel.invalid">Enter a valid fuel type.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input 
+            matInput 
+            name="year"
+            ngModel
+            required
+            #year="ngModel"
+            [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="fuel.invalid">Enter a valid year.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <label>Horsepower:</label>
+            <input
+                matInput
+                type="number"
+                name="horsepower"
+                ngModel
+                required
+                min="1"
+                #horsepower="ngModel">
+            <mat-error *ngIf="horsepower.invalid">Enter the horsepower.</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button 
+            color="primary" 
+            type="submit">
+            Add new
+        </button>
+
+    </form>
+</mat-card>
