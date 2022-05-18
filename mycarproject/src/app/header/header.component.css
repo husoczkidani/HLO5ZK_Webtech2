@@ -21,3 +21,8 @@ mat-toolbar a:visited{
 mat-toolbar a:hover{
     color:white;
 }
+
+#logout{
+    position: absolute;
+    right:0%;
+}

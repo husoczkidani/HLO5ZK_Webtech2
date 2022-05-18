@@ -11,10 +11,10 @@
   <a *ngIf="isAuthenticated" mat-button routerLink="/create" routerLinkActive="mat-accent">
     <span>Add new Item</span>
   </a>
-  <a *ngIf="isAuthenticated" mat-button routerLink="/register" routerLinkActive="mat-accent">
-    <span>Search Item List</span>
+  <a *ngIf="isAuthenticated" mat-button routerLink="/list" routerLinkActive="mat-accent">
+    <span>List Cars</span>
   </a>
   <a *ngIf="isAuthenticated" id="logout" mat-button (click)="onLogout()" routerLinkActive="mat-accent">
-    <span>Logout</span>
+    <mat-icon aria-hidden="false" aria-label="Example exit icon">logout</mat-icon>
   </a>
 </mat-toolbar>

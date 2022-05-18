@@ -10,7 +10,7 @@ const carTemplate = new mongoose.Schema({
         required: true
     },
     fuel:{
-        tpye: String,
+        type: String,
         default: ""
     },
     year:{
@@ -19,7 +19,7 @@ const carTemplate = new mongoose.Schema({
     },
     horsepower:{
         type: Number,
-        default: 0
+        required: true
     },
     added:{
         type: Date,

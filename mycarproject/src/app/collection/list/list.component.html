@@ -1,0 +1,33 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let car of cars">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ car.brand }}
+        </mat-panel-title>
+        <mat-panel-description>
+            {{ car.type }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+    <mat-grid-list cols="4" rowHeight="60">
+        <mat-grid-tile>
+            <b>Year:</b>{{ car.year | date:'yyyy'}}
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <b>Fuel:</b>{{ car.fuel }}
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <b>Power:</b>{{ car.horsepower }} HP
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button 
+            color="warn"
+            matTooltip="Delete car from the list"
+            mat-raised-button 
+            (click)="onDelete(car.id.toString())">
+            Delete Item
+        </button>
+        </mat-grid-tile>
+    </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+  

@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const User = require('../models/user')
 const Car = require('../models/car')
 const authChecker = require("../authentication_checker/auth_checker");
+var ObjectId = require('mongodb').ObjectID;
 
 router.post("/register", (req, res, next) => {
   console.log(req.body)
@@ -89,12 +90,11 @@ router.post("/create", authChecker, (req, res, next) => {
     type: req.body.type,
     fuel: req.body.fuel,
     year: req.body.year,
-    horsepower: req.horsepower,
+    horsepower: req.body.horsepower,
     user: req.userData.userId,
   });
   car.save()
     .then((created) => {
-      //console.log("Element added " + element._id);
       res.status(201).json({
         message: "Success!",
       });
